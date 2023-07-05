@@ -2,6 +2,7 @@ FROM ubuntu:latest
 LABEL maintainer="Isaac Huffman <isaacphuffman@gmail.com>"
 RUN apt-get update
 RUN apt-get install -y sudo curl git-core gnupg locales wget binutils nasm gcc make software-properties-common gh
+RUN apt-get install -y qemu-system-x86 neofetch net-tools
 
 RUN locale-gen en_US.UTF-8
 RUN adduser --quiet --disabled-password \
@@ -30,4 +31,5 @@ RUN sudo -H -u devuser git clone https://github.com/isaacph/osdev.git /home/devu
 RUN sudo -H -u devuser echo "cd ~" >> /home/devuser/.bashrc
 USER devuser
 ENV TERM xterm
+ENV DISPLAY host.docker.internal:0.0
 CMD ["bash"]
