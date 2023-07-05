@@ -1,7 +1,7 @@
 FROM ubuntu:latest
 LABEL maintainer="Isaac Huffman <isaacphuffman@gmail.com>"
 RUN apt-get update
-RUN apt-get install -y sudo curl git-core gnupg locales wget binutils nasm gcc make software-properties-common
+RUN apt-get install -y sudo curl git-core gnupg locales wget binutils nasm gcc make software-properties-common gh
 
 RUN locale-gen en_US.UTF-8
 RUN adduser --quiet --disabled-password \
