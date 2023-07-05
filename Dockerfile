@@ -22,11 +22,12 @@ RUN sudo -H -u devuser git clone --depth 1 https://github.com/wbthomason/packer.
 RUN sudo -H -u devuser mkdir -p /home/devuser/.config/nvim
 RUN sudo -H -u devuser git clone --depth 1 https://github.com/isaacph/nvim-config /home/devuser/.config/nvim
 RUN sudo -H -u devuser INITNVIM=1 nvim --headless -c 'autocmd User PackerComplete quitall' --noplugin
-RUN sudo -H -u devuser echo "cd ~" >> /home/devuser/.bashrc
 
 # clone my dev repos
 RUN sudo -H -u devuser git clone https://github.com/isaacph/osdev.git /home/devuser/osdev
 
+# start in HOME as devuser using bash
+RUN sudo -H -u devuser echo "cd ~" >> /home/devuser/.bashrc
 USER devuser
 ENV TERM xterm
 CMD ["bash"]
