@@ -5,6 +5,7 @@ General Ubuntu docker nvim setup
 ```
 docker create -f Dockerfile -t neovim
 docker run -v .:/home/devuser/output -it neovim
+# devuser password is placeholderpassword
 ```
 
 ## Authenticating with Github
