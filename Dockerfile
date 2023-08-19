@@ -18,6 +18,12 @@ RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get update
 RUN apt-get install -y neovim
 
+# add AWS CLI
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+RUN unzip awscliv2.zip
+RUN sudo ./aws/install
+RUN rm -rf aws awscliv2.zip
+
 # configure NVIM as devuser
 RUN sudo -H -u devuser mkdir -p /home/devuser/.local/share/nvim/site/pack/packer/start/packer.nvim
 RUN sudo -H -u devuser git clone --depth 1 https://github.com/wbthomason/packer.nvim \
