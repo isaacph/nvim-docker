@@ -18,7 +18,7 @@ RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get update
 RUN apt-get install -y neovim
 
-# add AWS CLI
+# add AWS CLI - https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 RUN unzip awscliv2.zip
 RUN sudo ./aws/install
