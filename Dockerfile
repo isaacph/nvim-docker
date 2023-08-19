@@ -2,7 +2,7 @@ FROM ubuntu:latest
 LABEL maintainer="Isaac Huffman <isaacphuffman@gmail.com>"
 RUN apt-get update
 RUN apt-get install -y sudo curl git-core gnupg locales wget binutils nasm gcc make software-properties-common gh
-RUN apt-get install -y neofetch net-tools neovim ripgrep
+RUN apt-get install -y neofetch net-tools ripgrep
 RUN apt-get install -y python3 npm python3.10-venv
 RUN apt-get install -y zip unzip tar
 
@@ -16,6 +16,7 @@ RUN usermod -aG sudo devuser
 # need unstable debian repository's nvim
 RUN add-apt-repository ppa:neovim-ppa/unstable
 RUN apt-get update
+RUN apt-get install -y neovim
 
 # configure NVIM as devuser
 RUN sudo -H -u devuser mkdir -p /home/devuser/.local/share/nvim/site/pack/packer/start/packer.nvim
